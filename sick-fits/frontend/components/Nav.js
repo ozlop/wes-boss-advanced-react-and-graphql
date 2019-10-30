@@ -5,8 +5,9 @@ import User from "./User";
 const Nav = () => (
   <NavStyles>
     <User>
-      {data => {
-        return <p>User</p>;
+      {({ data: { me } }) => {
+        if (me) return <p>{me.name}</p>;
+        return null;
       }}
     </User>
     <Link href="/items">
